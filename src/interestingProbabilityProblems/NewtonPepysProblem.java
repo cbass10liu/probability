@@ -34,7 +34,6 @@ public class NewtonPepysProblem {
 				eighteenDiceSuccess ++;
 			}
 			
-			System.out.println(getRandomValueInRange(1, 6));
 		}
 		
 		System.out.println("Number of Trials: " + numberOfTrials);
@@ -74,10 +73,6 @@ public class NewtonPepysProblem {
 	
 	static int tossDie() {
 		return (int) ((Math.random() * 6) + 1);
-	}
-	
-	static int getRandomValueInRange(int a, int b) {
-		return (int) ((Math.random() * (b - (a - 1))) + a);
 	}
 
 }

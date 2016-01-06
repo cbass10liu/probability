@@ -61,7 +61,7 @@ public class TheBirthdayParadox {
 
 	// Return a random number between a range, inclusive.
 	static int getRandomValueInRange(int a, int b) {
-		return (int) (Math.random() * (b - a)) + a + 1;
+		return (int) ((Math.random() * (b - (a - 1))) + a);
 	}
 
 	// Initialize birthdays. Each day of the year can be represented by a number
@@ -70,7 +70,7 @@ public class TheBirthdayParadox {
 	static int[] initializeBirthdays(int numberOfParticipants) {
 		int[] participantBirthdays = new int[numberOfParticipants];
 		for (int i = 0; i < numberOfParticipants; i++) {
-			participantBirthdays[i] = getRandomValueInRange(1, 365);
+			participantBirthdays[i] = getRandomValueInRange(0, 365);
 		}
 		return participantBirthdays;
 	}

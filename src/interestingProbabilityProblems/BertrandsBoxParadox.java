@@ -107,27 +107,15 @@ class Box {
 	}
 
 	public boolean isGoldBox(Box box) {
-		if (box.getFirstCoin() == Coin.GOLD && box.getSecondCoin() == Coin.GOLD) {
-			return true;
-		} else {
-			return false;
-		}
+		return (box.getFirstCoin() == Coin.GOLD && box.getSecondCoin() == Coin.GOLD) ? true : false; 
 	}
 
 	public boolean isSilverBox(Box box) {
-		if (box.getFirstCoin() == Coin.SILVER && box.getSecondCoin() == Coin.SILVER) {
-			return true;
-		} else {
-			return false;
-		}
+		return (box.getFirstCoin() == Coin.SILVER && box.getSecondCoin() == Coin.SILVER) ? true: false; 
 	}
 
 	public boolean isMixedBox(Box box) {
-		if (!(isGoldBox(box) || isSilverBox(box))) {
-			return true;
-		} else {
-			return false;
-		}
+		return  (!(isGoldBox(box) || isSilverBox(box))) ? true : false; 
 	}
 
 }

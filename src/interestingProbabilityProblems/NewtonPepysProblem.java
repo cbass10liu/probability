@@ -56,11 +56,7 @@ public class NewtonPepysProblem {
 				numberOfInstances ++; 
 			}
 		}
-		if (m <= numberOfInstances) {
-			return true; 
-		} else {
-			return false; 
-		}
+		return (m <= numberOfInstances) ? true : false; 
 	}
 	
 	static int[] tossNDie(int n) {

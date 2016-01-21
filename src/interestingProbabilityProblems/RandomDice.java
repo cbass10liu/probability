@@ -23,6 +23,7 @@ public class RandomDice {
 
 		int numberOfTrials = 10000;
 		int numberOfEducatedGuessSuccess = 0;
+		int numberOfRandomGuessSuccess = 0; 
 		int numberOfDie = 100;
 		int numberOfSidesOnDie = 6;
 
@@ -30,6 +31,13 @@ public class RandomDice {
 
 			// The complete result of rolling the dice.
 			int rolledResults[] = tossNDie(numberOfDie, numberOfSidesOnDie);
+			// Have each person guess randomly what his or her roll is. 
+			int randomGuessing[] = tossNDie(numberOfDie, numberOfSidesOnDie);
+			// If all of them are correct, they are successful. 
+			if (sameRolls(rolledResults, randomGuessing)) {
+				numberOfRandomGuessSuccess++;
+			}
+			
 			// Calculate the expected sum of all the dice.
 			float expectedSum = expectedSum(6, numberOfDie);
 			int numberOfIndividualSuccesses = 0;
@@ -80,6 +88,9 @@ public class RandomDice {
 		System.out.println("Number of Correct Educated Guesses: " + numberOfEducatedGuessSuccess);
 		System.out.println("Probability of Success with Educated Guessing: "
 				+ (double) (numberOfEducatedGuessSuccess) / (double) (numberOfTrials) * 100 + "%");
+		System.out.println("Number of Correct Random Guesses: " + numberOfRandomGuessSuccess);
+		System.out.println("Probability of Success with Random Guessing: "
+				+ (double) (numberOfRandomGuessSuccess) / (double) (numberOfTrials) * 100 + "%");
 
 	}
 
@@ -114,6 +125,19 @@ public class RandomDice {
 
 	static int tossDie(int numberOfSides) {
 		return (int) ((Math.random() * numberOfSides) + 1);
+	}
+	
+	static boolean sameRolls(int[] firstSet, int[] secondSet) {
+		if (firstSet.length != secondSet.length) {
+			return false; 
+		} else {
+			for (int i = 0; i < firstSet.length; i ++) {
+				if (firstSet[i] != secondSet[i]) {
+					return false; 
+				}
+			}
+			return true; 
+		}
 	}
 
 }

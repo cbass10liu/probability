@@ -98,12 +98,7 @@ class Box {
 	}
 
 	public Coin chooseRandomCoin() {
-		double randomNumber = Math.random();
-		if (randomNumber < 0.5) {
-			return this.getFirstCoin();
-		} else {
-			return this.getSecondCoin();
-		}
+		return Math.random() < 0.5 ? this.getFirstCoin() : this.getSecondCoin();
 	}
 
 	public boolean isGoldBox(Box box) {
